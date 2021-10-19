@@ -1,0 +1,6 @@
+to convert a int to string
+int a=10,b;
+stringstream ss;
+ss<<a;
+ss>>b;
+now b will be the string version of 10.
