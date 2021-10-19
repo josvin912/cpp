@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 class Solution{
 	public:
@@ -36,9 +37,40 @@ class Solution{
 			cout<<a[i]<<" : ";
 		}
 	}
+	void mergeSortedArray(vector<int>&A,vector<int>&B){
+		vector<int>C;
+		int i=0,j=0;
+		while(i<A.size() && j<B.size()){
+				if(A[i]<=B[j]){
+					C.push_back(A[i]);
+					i++;
+				}
+				else if(A[i]>=B[j]){
+					C.push_back(B[j]);
+					j++;
+				}
+			}
+			if(i==A.size()){
+				while(j<B.size()){
+					C.push_back(B[j]);
+					j++;
+				}
+			}
+			else if(j==B.size()){
+				while(i<A.size()){
+					C.push_back(A[i]);
+					i++;
+				}
+			}
+			for(int k=0;k<C.size();k++){
+				cout<<C[k]<<" : ";
+			}
+		}
 	};
 	int main(){
 		Solution s;
 		int arr[5]={2,4,1,9,0};
-		s.reverseArray(arr,5);
+		vector<int>vec1={2,4,6,8};
+		vector<int>vec2={1,3,5,7};
+		s.mergeSortedArray(vec1,vec2);
 	}
